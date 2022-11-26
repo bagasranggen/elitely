@@ -1,0 +1,68 @@
+%base-button {
+    border-radius: 0;
+    font-weight: 500;
+}
+
+%btn-base-padding {
+    padding: 1rem 3rem;
+}
+
+.btn {
+    @extend %base-button, %btn-base-padding;
+
+    // CONTAINER
+    //&-container {
+    //
+    //    &--gx {
+    //        &-10 {
+    //            > .btn-group {
+    //                &:not(:last-child) {
+    //                    margin-right: 10px;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+    &-gap {
+        &--gx-10 {
+            margin-left: -5px;
+            margin-right: -5px;
+
+            > [class*=col] {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    }
+
+    // BUTTON OUTLINE
+    &-outline {
+        @include btn-outline();
+
+        &--light {
+            @include btn-outline-color($white, $el-primary, $el-light, $el-primary, $el-primary, $white);
+        }
+
+        &--light-dark {
+            @include btn-outline-color($el-d-bg, darken(#F0F0F0, 20), $el-d-bg, darken(#F0F0F0, 20), $el-dark, $el-dark);
+        }
+
+        &--primary {
+            @include btn-outline-color($el-l-primary, $el-primary, $el-l-primary, $el-primary, $el-primary, $white);
+        }
+
+        &--secondary {
+            @include btn-outline-color($el-l-secondary, $el-secondary, $el-secondary, $el-secondary, $el-secondary, $white);
+        }
+
+        &--sm {
+            font-size: 9px;
+            padding: .25rem .5rem;
+        }
+
+        &--md {
+            font-size: 14px;
+            padding: .5rem 1rem;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.header {
+    &-top,
+    &-navigation {
+        background-color: $white;
+        @include border-bottom($el-l-light);
+    }
+
+    &-top {
+        padding-top: 1.15rem;
+        padding-bottom: 1.15rem;
+
+        h1 {
+            font-size: 18px;
+        }
+    }
+
+    &-navigation {
+        @extend %position-relative;
+        z-index: 1;
+
+        .list-nav {
+            a {
+                padding-top: .85rem;
+                padding-bottom: .85rem;
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+}

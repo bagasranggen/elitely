@@ -1,0 +1,30 @@
+@mixin btn-outline() {
+    font-weight: 600;
+    border-radius: 100px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+@mixin btn-outline-color($bg, $bg-hover, $border,$border-hover,  $color, $color-hover) {
+    background-color: $bg;
+    border-color: $border;
+    color: $color;
+
+    @include media-breakpoint-up(lg) {
+        @include hover() {
+            background-color: $bg-hover;
+            border-color: $border-hover;
+            color: $color-hover;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        @include btn-outline-active-color($bg, $border, $color)
+    }
+}
+
+@mixin btn-outline-active-color($bg, $border, $color) {
+    background-color: $bg !important;
+    border-color: $border !important;
+    color: $color !important;
+}

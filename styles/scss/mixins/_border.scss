@@ -1,0 +1,3 @@
+@mixin border-bottom($color) {
+    border-bottom: solid .1rem $color;
+}

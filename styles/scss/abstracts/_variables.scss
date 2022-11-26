@@ -1,0 +1,110 @@
+// Color
+$el-bg: #FAFAFA;
+$el-d-bg: #F0F0F0;
+$el-light: #D9D9D9;
+$el-l-light: #E0E0E0;
+$el-d-light: #878787;
+$el-dark: #1E1E1E;
+$el-d-darker: #333333;
+$el-primary: #B2294B;
+$el-l-primary: #FBF4F6;
+$el-lr-primary: #F7EAED;
+$el-secondary: #32C08D;
+$el-l-secondary: #EAF9F4;
+$el-tertiary: #E4BC28;
+$nt-primary: #091540;
+$nt-light: #F8F7F9;
+
+// Reset
+$font-size-base: 1.4rem;
+
+// $headings-font-family:        null;
+// $headings-font-style:         null;
+// $headings-font-weight:        500;
+
+$line-height-base: 1.8;
+// $line-height-sm:              1.25;
+// $line-height-lg:              2;
+
+// $h1-font-size:                $font-size-base * 2.5;
+// $h2-font-size:                $font-size-base * 2;
+// $h3-font-size:                $font-size-base * 1.75;
+// $h4-font-size:                $font-size-base * 1.5;
+// $h5-font-size:                $font-size-base * 1.25;
+// $h6-font-size:                $font-size-base;
+
+// Spacing
+$spacing: 15;
+$max: 6rem;
+$spacer: 16px !default;
+$spacers: make-space($spacing);
+
+// Grid Spacing
+$grid-gutter-width: 30px !default;
+
+// Overlay
+$overlays: 6;
+
+// Navigation transition duration
+$nav-duration: 0.35s;
+
+// Banner full screen max height for screen > 1600px
+$banner-max-height: 85rem;
+
+// Measure to bottom of navigation
+$bottom-navigation: 0;
+
+// Breadcrumb
+$breadcrumb-padding-y: 1rem;
+$breadcrumb-divider: quote("\f054");
+
+// Pagination
+$pagination-bg: transparent;
+//$pagination-color: $ad-primary;
+$pagination-border-width: 0;
+$pagination-border-radius: 0;
+
+//$pagination-focus-color: $ad-primary;
+$pagination-focus-bg: transparent;
+
+//$pagination-hover-color: $ad-secondary;
+$pagination-hover-bg: transparent;
+
+//$pagination-active-color: $ad-secondary;
+$pagination-active-bg: transparent;
+
+// Modal
+//$btn-close-color: $ad-secondary;
+$btn-close-opacity: 1;
+$btn-close-hover-opacity: 0.5;
+$btn-close-focus-opacity: 1;
+
+$modal-header-border-width: 0;
+
+// Loader
+//$primary-loader: $nt-primary;
+$spinner-width: 4.5rem;
+$spinner-height: $spinner-width;
+
+// Heading Gradient
+$heading-gradient: 4;
+$heading-gradient-limit: $heading-gradient + 1;
+$heading-gradient-duration: 8;
+
+// Carousel
+$carousel-experiment-time: 4.3s;
+
+// Menu Toggle
+$menu-toggle-height: 1.4rem;
+
+// Menu List Items
+$menu-list-items: 4;
+
+// Modal
+$modal-content-bg: $nt-light;
+
+// Offcanvas
+$offcanvas-padding-x: 0;
+$offcanvas-horizontal-width: 100vw;
+$offcanvas-border-width: 0;
+
