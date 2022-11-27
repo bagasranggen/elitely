@@ -23,7 +23,7 @@ const Header = ({}: HeaderProps): React.ReactElement => {
                 className='header-top'
                 fluid>
                 <Row>
-                    <Col></Col>
+                    <Col><i className="fa-solid fa-arrow-left" /></Col>
                     <Col className='text-center'><h1 className='mb-0'>Profile</h1></Col>
                     <Col></Col>
                 </Row>
