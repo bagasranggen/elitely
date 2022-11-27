@@ -2,7 +2,7 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 
-import verified from '../../../../assets/images/verified.svg'
+import Verified from '../../../../assets/images/verified.svg'
 
 import Button from "../../button/Button";
 
@@ -30,10 +30,9 @@ const CardSidebar = ({title, thumbnailType, items}: CardSidebarProps): React.Rea
 
             <div className={`card-sidebar__cards cards-thumbnail cards-thumbnail--${thumbnailType}`}>
                 {items.map((item: any) => (
-                    <>
+                    <div key={item.username}>
                         <hr />
                         <Link
-                            key={item.uri}
                             href={item.uri}
                             className="row cards-thumbnail__item">
                             <div className="col-auto">
@@ -50,17 +49,14 @@ const CardSidebar = ({title, thumbnailType, items}: CardSidebarProps): React.Rea
                                     {thumbnailType === 'rectangle' &&
                                         <h4 className={`text-uppercase cards-thumbnail__category${item?.category ? ` cards-thumbnail__category--${categoryColor(item.category)}` : ''}`}>{item.category}</h4>}
                                     <p className={`cards-thumbnail__username${thumbnailType === 'circle' ? ' d-flex align-items-center' : ''}`}>{item.username}{item?.isVerified &&
-                                        <Image
-                                            className='ms-1'
-                                            src={verified}
-                                            alt='user verified' />}</p>
+                                        <span className='d-inline-block ms-1'><Verified /></span>}</p>
                                     {thumbnailType === 'circle' ?
                                         <p className='mt-auto cards-thumbnail__bio'>{item.bio}</p> :
                                         <p className='mt-auto cards-thumbnail__status'>{item.lastSeen}</p>}
                                 </div>
                             </div>
                         </Link>
-                    </>
+                    </div>
                 ))}
             </div>
 

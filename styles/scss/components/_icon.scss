@@ -2,36 +2,69 @@
     &-circle {
         @extend %position-relative;
 
+        &__image:before,
+        &__image img,
+        i:before,
+        i:after,
+        svg {
+            @extend %position-absolute;
+
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &__image:before,
+        i:before {
+            content: '';
+            left: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 100%;
+            background-color: $el-l-light;
+            z-index: -1;
+        }
+
+        &__image,
         i {
             z-index: 1;
+        }
 
-            &:before,
-            &:after {
-                @extend %position-absolute;
-
-                top: 50%;
-                transform: translateY(-50%);
+        &__image {
+            img,
+            svg {
+                left: 4px;
             }
+        }
 
+        i {
             &:before {
                 font-size: 12px;
                 left: 4px;
-            }
-
-            &:after {
-
-                content: '';
-                left: 0;
-                width: 22px;
-                height: 22px;
-                border-radius: 100%;
-                background-color: $el-l-light;
-                z-index: -1;
             }
         }
 
         > p {
             margin-left: 30px;
+        }
+
+        &--lg {
+            .icon-circle {
+                &__image,
+                &__image:before,
+                i:before {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                &__image {
+                    @extend %position-relative;
+
+                    img,
+                    svg {
+                        left: 10px;
+                    }
+                }
+            }
         }
     }
 
@@ -67,3 +100,4 @@
         }
     }
 }
+

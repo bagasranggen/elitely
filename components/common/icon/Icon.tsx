@@ -10,13 +10,16 @@ export type IconProps = | ({
     type: 'square';
 } & IconSquareProps)
 
-const Icon = ({type, icon, title, children}: IconProps): React.ReactElement => {
+const Icon = ({type, icon, iconType, title, children}: IconProps): React.ReactElement => {
     switch (type) {
         case "circle":
-            return <IconCircle icon={icon}>{children}</IconCircle>;
+            return <IconCircle
+                iconType={iconType}
+                icon={icon}>{children}</IconCircle>;
 
         case "square":
             return <IconSquare
+                iconType={iconType}
                 icon={icon}
                 title={title}>{children}</IconSquare>
     }

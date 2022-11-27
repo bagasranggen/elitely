@@ -82,8 +82,15 @@
                     a {
                         color: $el-primary;
 
-                        &:before {
-                            width: 100%;
+                        @include media-breakpoint-up(md) {
+                            &:before {
+                                width: 100%;
+                            }
+                        }
+
+                        svg path {
+                            fill: $el-primary;
+                            stroke: $el-primary;
                         }
                     }
                 }
@@ -94,6 +101,11 @@
     &-tab {
         border-bottom-color: $el-l-light;
         margin-bottom: 1.5rem;
+
+        @include media-breakpoint-down(md) {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
 
         .nav {
             &-link {

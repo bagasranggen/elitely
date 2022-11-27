@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useRouter} from "next/router";
 
-import headerNavigation from '../../../data/headerNavigation'
+import headerNavigation from '../../../data/headerNavigation';
+import mobileIcon from '../../../data/mobileNavIcon';
 
 import {Container, Row, Col} from "react-bootstrap";
 import List from "../../common/list/List";
@@ -26,6 +27,8 @@ const Header = ({}: HeaderProps): React.ReactElement => {
                     <Col className='text-center'><h1 className='mb-0'>Profile</h1></Col>
                     <Col></Col>
                 </Row>
+                <div>
+                </div>
             </Container>
 
             <section className='header-navigation'>

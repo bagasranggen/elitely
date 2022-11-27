@@ -1,0 +1,15 @@
+.ratings {
+    @extend %d-flex;
+
+    &__text {
+        font-weight: 600;
+    }
+
+    &__icon {
+        @extend %ms-1;
+
+        i {
+            color: $el-rating;
+        }
+    }
+}

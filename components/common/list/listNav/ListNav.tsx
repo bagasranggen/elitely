@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from "next/link";
 
+import mobileNavIcon from "../../../../data/mobileNavIcon";
+
 import {Nav} from "react-bootstrap";
 
 export type ListNavProps = {
@@ -22,7 +24,13 @@ const ListNav = ({items, active, setActive}: ListNavProps): React.ReactElement =
                 key={h.uri}
                 className="col text-center">
                 <Nav.Item className={h.uri === active ? ' active' : ''}>
-                    <Link href={h.uri}>{h.label}</Link>
+                    <Link
+                        href={h.uri}
+                        className='d-none d-md-block'>{h.label}</Link>
+                    <Link
+                        href={h.uri}
+                        // @ts-ignore
+                        className='d-md-none'>{mobileNavIcon[h.icon as keyof Object]}</Link>
                 </Nav.Item>
             </div>
         ))}

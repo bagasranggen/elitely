@@ -1,10 +1,12 @@
 import React from 'react';
 import Image from "next/image";
 
-import verified from '../../../../assets/images/verified.svg'
+import Verified from '../../../../assets/images/verified.svg';
+import Menu from '../../../../assets/images/menu.svg'
 
 import {Col, Row} from "react-bootstrap";
-import Button, {ButtonWrapper} from "../../button/Button";
+import Button from "../../button/Button";
+import Icon from "../../icon/Icon";
 
 export type CardProfileProps = {
     profile: {
@@ -41,33 +43,21 @@ const CardProfile = ({profile}: CardProfileProps): React.ReactElement => (
                     fullWidth>Personality</Button>
             </Col>
             <Col>
-                <h2>{profile.username}{profile.isVerified && <Image
-                    src={verified}
-                    alt='user is verified' />}</h2>
+                <h2>{profile.username}{profile.isVerified && <Verified />}</h2>
                 <div className={`card-profile__status card-profile__status--${profile.isOnline ? 'online' : 'offline'} ps-1`}>{profile.isOnline ? 'Online now' : 'Offline'}</div>
                 <p>{profile.bio}</p>
             </Col>
-            <Col>
-                ss
+            <Col
+                xs='auto'
+                md={3}
+                className='align-self-md-center'>
+                <Icon
+                    type='circle'
+                    icon={<Menu />}
+                    iconType='svg' />
             </Col>
         </Row>
         <hr />
-        {/*<ButtonWrapper>*/}
-        {/*    <Button*/}
-        {/*        type='button'*/}
-        {/*        buttonType='button'*/}
-        {/*        size='md'*/}
-        {/*        color='primary'*/}
-        {/*        classNames='col-md'*/}
-        {/*        fullWidth>Chat</Button>*/}
-        {/*    <Button*/}
-        {/*        type='button'*/}
-        {/*        buttonType='button'*/}
-        {/*        size='md'*/}
-        {/*        color='primary'*/}
-        {/*        fullWidth>Chat</Button>*/}
-
-        {/*</ButtonWrapper>*/}
         <Row className='btn-gap--gx-10'>
             <Col>
                 <Button

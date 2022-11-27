@@ -1,0 +1,26 @@
+.carousel {
+    @include media-breakpoint-down(md) {
+        margin-top: -1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    &-indicators {
+        bottom: -70px;
+
+        [data-bs-target] {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: $el-l-light;
+
+            &.active {
+                background-color: $el-primary;
+            }
+        }
+    }
+
+    &-inner {
+        margin-bottom: 70px;
+    }
+}

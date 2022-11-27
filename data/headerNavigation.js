@@ -1,19 +1,23 @@
 const headerNavigation = [
     {
         uri: '/',
-        label: 'Home'
+        label: 'Home',
+        icon: 'home'
     },
     {
         uri: '/explore',
-        label: 'Explore'
+        label: 'Explore',
+        icon: 'search'
     },
     {
         uri: '/feed',
-        label: 'Feed'
+        label: 'Feed',
+        icon: 'tab'
     },
     {
         uri: '/scheduled',
-        label: 'Scheduled'
+        label: 'Scheduled',
+        icon: 'calendar'
     },
 ];
 
