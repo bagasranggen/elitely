@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useRouter} from "next/router";
 
 import headerNavigation from '../../../data/headerNavigation';
-import mobileIcon from '../../../data/mobileNavIcon';
 
 import {Container, Row, Col} from "react-bootstrap";
 import List from "../../common/list/List";
@@ -22,9 +21,12 @@ const Header = ({}: HeaderProps): React.ReactElement => {
             <Container
                 className='header-top'
                 fluid>
-                <Row>
-                    <Col><i className="fa-solid fa-arrow-left" /></Col>
-                    <Col className='text-center'><h1 className='mb-0'>Profile</h1></Col>
+                <Row className='align-items-end gx-1'>
+                    <Col
+                        className='align-self-end'
+                        xs='auto'
+                        md><i className="fa-solid fa-arrow-left" /></Col>
+                    <Col className='text-md-center'><h1 className='mb-0'>Profile</h1></Col>
                     <Col></Col>
                 </Row>
                 <div>

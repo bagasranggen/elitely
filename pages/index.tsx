@@ -6,6 +6,7 @@ import dummyProfile from '../data/dummyProfile';
 import dummyRelatedPerson from '../data/dummyRelatedPerson';
 import dummyInterestedPerson from '../data/dummyInterestedPerson';
 import dummyCarousel from '../data/dummyCarousel';
+import dummyMeetups from '../data/dummyMeetups';
 
 import {Col, Container, Row, Tabs, Tab, Table} from "react-bootstrap";
 
@@ -16,13 +17,16 @@ import Button from "../components/common/button/Button";
 import Slider from "../components/common/slider/Slider";
 
 const Home: NextPage = () => {
-    const [activeTab, setActiveTab] = useState<string>('main')
+    const [activeTab, setActiveTab] = useState<string>('main');
+    const [isFollowed, setIsFollowed] = useState<boolean>(false)
 
     return (
         <Container className='mb-4'>
 
             <CardCustom
                 type='profile'
+                isFollowed={isFollowed}
+                setIsFollowed={() => setIsFollowed(!isFollowed)}
                 className='mb-md-1'
                 profile={dummyProfile[0].profile} />
 
@@ -41,7 +45,9 @@ const Home: NextPage = () => {
                                 title='Xiuxian, 22'
                                 education='SIM-UOL'
                                 work='Student at University'
-                                post={<Slider items={dummyCarousel} />}>
+                                post={<Slider
+                                    type='post'
+                                    items={dummyCarousel} />}>
                                 <p className='mb-0'>Gemini. Art student and tall. <br /> Coffee, cold showers and early
                                     morning walks!
                                 </p>
@@ -118,37 +124,22 @@ const Home: NextPage = () => {
                             <div className="mt-3 card-meet">
                                 <h3>Meetups</h3>
                                 <hr />
-                                <div className="card-meet__cards">
-                                    <Icon
-                                        type='square'
-                                        iconType='icon'
-                                        icon='fa-solid fa-rocket'
-                                        title='Recent Updates'>I’m free today 10:30 am - 3 pm, coming from West. Open to
-                                        try
-                                        any area and place!</Icon>
-                                    <Icon
-                                        type='square'
-                                        iconType='icon'
-                                        icon='fa-regular fa-calendar-check'
-                                        title='Activities'>Cafe, bar, picnic, anything easy going!</Icon>
-                                    <Icon
-                                        type='square'
-                                        iconType='icon'
-                                        icon='fa-solid fa-utensils'
-                                        title='Food Preferences'>Pasta and sushi</Icon>
-                                    <Icon
-                                        type='square'
-                                        iconType='icon'
-                                        icon='fa-regular fa-calendar-check'
-                                        title='Availability'>Flexi but preferably weekdays! Please arrange at least two
-                                        days in advance.</Icon>
-                                    <Icon
-                                        type='square'
-                                        iconType='icon'
-                                        icon='fa-solid fa-martini-glass-citrus'
-                                        title='Lorem Ipsum'>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</Icon>
+                                <Slider
+                                    type='icon'
+                                    className='d-lg-none'
+                                    perPage={2}
+                                    items={dummyMeetups} />
+                                <div className="d-none d-lg-block card-meet__cards">
+                                    {dummyMeetups.map((dm: any) => (
+                                        <Icon
+                                            key={dm.description}
+                                            type='square'
+                                            iconType='icon'
+                                            icon={dm.icon}
+                                            title={dm.title}>{dm.description}</Icon>
+                                    ))}
                                 </div>
+
                             </div>
                         </Tab>
                         <Tab
@@ -161,13 +152,14 @@ const Home: NextPage = () => {
                 <Col md={4}>
                     <CardCustom
                         type='sidebar'
+                        className='d-none d-lg-block'
                         title='Meet our new members'
                         thumbnailType='rectangle'
                         items={dummyRelatedPerson} />
 
                     <CardCustom
                         type='sidebar'
-                        className='mt-1'
+                        className='d-none d-lg-block mt-lg-1'
                         title='You might also wanna check'
                         thumbnailType='circle'
                         items={dummyInterestedPerson} />

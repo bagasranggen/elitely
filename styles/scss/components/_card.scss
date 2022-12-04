@@ -4,9 +4,15 @@
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 
     @include media-breakpoint-down(md) {
-        border-radius: 0;
-        margin-left: -15px;
-        margin-right: -15px;
+        &:not(.card-info) {
+            border-radius: 0;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        &.card-info {
+            border-color: $white;
+        }
     }
 
     &-body {
@@ -25,9 +31,13 @@
         h2 {
             @extend %d-flex, %align-items-center;
 
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
             margin-bottom: 6px;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 16px;
+            }
 
             img,
             svg {
@@ -61,12 +71,18 @@
 
         &__status,
         &__status + p {
-            font-size: 12px;
+            @include media-breakpoint-up(lg) {
+                font-size: 12px;
+            }
         }
 
         &__status {
             @extend %position-relative;
             margin-bottom: 6px;
+
+            @include media-breakpoint-down(lg) {
+                font-size: 10px;
+            }
 
             &:before {
                 @extend %position-absolute;
@@ -97,6 +113,11 @@
             @extend %mb-0;
 
             color: $el-d-light;
+
+            @include media-breakpoint-down(lg) {
+                font-size: 9px;
+                line-height: 13.5px;
+            }
         }
     }
 
@@ -116,7 +137,11 @@
 
     &-info {
         &__title {
-            font-size: 18px;
+            font-size: 16px;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 18px;
+            }
         }
 
         &__table {
@@ -128,8 +153,8 @@
 
             tbody {
                 th, td {
-                    padding-top: 4px;
-                    padding-bottom: 4px;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
                 }
 
                 td {
@@ -141,13 +166,15 @@
 
     &-meet {
         h3 {
-            font-size: 16px;
+            font-size: 14px;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 16px;
+            }
         }
 
-        &__cards {
-            > .icon-square {
-                margin-bottom: 24px;
-            }
+        .icon-square {
+            margin-bottom: 24px;
         }
     }
 }

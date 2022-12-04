@@ -9,6 +9,8 @@ import Button from "../../button/Button";
 import Icon from "../../icon/Icon";
 
 export type CardProfileProps = {
+    isFollowed?: boolean;
+    setIsFollowed?: () => void;
     profile: {
         username: string;
         bio: React.ReactNode;
@@ -21,13 +23,13 @@ export type CardProfileProps = {
     }
 };
 
-const CardProfile = ({profile}: CardProfileProps): React.ReactElement => (
+const CardProfile = ({isFollowed, setIsFollowed, profile}: CardProfileProps): React.ReactElement => (
     <>
-        <Row>
+        <Row className='gx-1 gx-lg-2'>
             <Col
                 className='card-profile__profile'
                 xs={'auto'}>
-                <div className={`card-profile__image${profile.isVerified ? ' cardProfile-profile__image--verified' : ''}`}>
+                <div className={`card-profile__image${profile.isVerified ? ' card-profile__image--verified' : ''}`}>
                     <Image
                         src={profile.photo}
                         width={profile.width}
@@ -39,7 +41,7 @@ const CardProfile = ({profile}: CardProfileProps): React.ReactElement => (
                     buttonType='button'
                     size='sm'
                     color='secondary'
-                    classNames='mt-1 text-uppercase'
+                    className='mt-1 text-uppercase'
                     fullWidth>Personality</Button>
             </Col>
             <Col>
@@ -81,7 +83,9 @@ const CardProfile = ({profile}: CardProfileProps): React.ReactElement => (
                     buttonType='button'
                     size='md'
                     color='light'
-                    fullWidth>Follow</Button>
+                    isActive={isFollowed}
+                    onClick={setIsFollowed}
+                    fullWidth>{isFollowed ? 'Followed' : 'Follow'}</Button>
             </Col>
         </Row>
     </>

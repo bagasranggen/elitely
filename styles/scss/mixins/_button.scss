@@ -10,11 +10,19 @@
     border-color: $border;
     color: $color;
 
+    &.btn--is-active {
+        @include btn-outline-active-color($bg-hover, $border-hover, $color-hover);
+        
+        @include media-breakpoint-up(lg) {
+            @include hover() {
+                @include btn-outline-active-color(lighten($bg-hover, 10), $border-hover, $color-hover);
+            }
+        }
+    }
+
     @include media-breakpoint-up(lg) {
         @include hover() {
-            background-color: $bg-hover;
-            border-color: $border-hover;
-            color: $color-hover;
+            @include btn-outline-active-color($bg-hover, $border-hover, $color-hover);
         }
     }
 
