@@ -2,11 +2,12 @@ import React from 'react';
 import Link from "next/link";
 
 export type ButtonOutlineProps = {
-    classNames?: string;
+    className?: string;
     color: 'light' | 'light-dark' | 'primary' | 'secondary';
     isActive?: boolean;
     size: 'sm' | 'md';
     fullWidth?: boolean;
+    onClick?: () => void;
     children: React.ReactNode;
 };
 
@@ -24,7 +25,8 @@ const ButtonOutline = ({
                            type,
                            buttonType,
                            href,
-                           classNames,
+                           className,
+                           onClick,
                            color,
                            isActive,
                            size,
@@ -32,19 +34,21 @@ const ButtonOutline = ({
                            children
                        }: ButtonOutlineProps & ButtonOutlineConditionalProps): React.ReactElement => {
     let btn;
-    const btnClass = `btn btn-outline btn-outline--${color} btn-outline--${size}${isActive ? ' btn-outline--active' : ''}`
-    const btnGroupClass = `btn-group${fullWidth ? ' w-100' : ''}${classNames ? ` ${classNames}` : ''}`;
+    const btnClass = `btn btn-outline btn-outline--${color} btn-outline--${size}${isActive ? ' btn--is-active' : ''}`
+    const btnGroupClass = `btn-group${fullWidth ? ' w-100' : ''}${className ? ` ${className}` : ''}`;
 
     switch (type) {
         case "anchor":
             btn = <Link
                 className={btnClass}
+                onClick={onClick}
                 href={href}>{children}</Link>
             break;
 
         case "button":
             btn = <button
                 type={buttonType}
+                onClick={onClick}
                 className={btnClass}>{children}</button>
             break;
     }

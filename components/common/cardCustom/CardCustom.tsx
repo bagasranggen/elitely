@@ -21,6 +21,8 @@ type CardCustomConditionalProps = | ({
     children?: never;
 } & CardProfileProps) | ({
     type: 'sidebar';
+    isFollowed?: never;
+    setIsFollowed?: never;
     profile?: never;
     education?: never;
     work?: never;
@@ -29,11 +31,15 @@ type CardCustomConditionalProps = | ({
 } & CardSidebarProps) | ({
     type: 'info';
     thumbnailType?: never;
+    isFollowed?: never;
+    setIsFollowed?: never;
     profile?: never;
     items?: never;
 } & CardInfoProps) | ({
     type: 'post';
     thumbnailType?: never;
+    isFollowed?: never;
+    setIsFollowed?: never;
     profile?: never;
     items?: never;
 } & CardPostProps)
@@ -42,6 +48,8 @@ const CardCustom = ({
                         className,
                         type,
                         thumbnailType,
+                        isFollowed,
+                        setIsFollowed,
                         profile,
                         title,
                         items,
@@ -56,6 +64,8 @@ const CardCustom = ({
     switch (type) {
         case "profile":
             content = <CardProfile
+                isFollowed={isFollowed}
+                setIsFollowed={setIsFollowed}
                 profile={profile} />
             break;
 

@@ -8,10 +8,12 @@ const Button = ({
                     buttonType,
                     color,
                     size,
+                    isActive,
                     fullWidth,
                     href,
-                    classNames,
-                    children
+                    className,
+                    onClick,
+                    children,
                 }: ButtonProps): React.ReactElement => {
     switch (type) {
         case "anchor":
@@ -19,9 +21,11 @@ const Button = ({
                 type='anchor'
                 href={href}
                 color={color}
+                isActive={isActive}
                 size={size}
                 fullWidth={fullWidth}
-                classNames={classNames}>{children}</ButtonOutline>
+                onClick={onClick}
+                className={className}>{children}</ButtonOutline>
 
         case "button":
             return <ButtonOutline
@@ -30,7 +34,9 @@ const Button = ({
                 color={color}
                 size={size}
                 fullWidth={fullWidth}
-                classNames={classNames}>{children}
+                isActive={isActive}
+                onClick={onClick}
+                className={className}>{children}
             </ButtonOutline>
     }
 }

@@ -10,6 +10,8 @@
 .btn {
     @extend %base-button, %btn-base-padding;
 
+    text-transform: inherit;
+
     // CONTAINER
     //&-container {
     //
@@ -57,7 +59,7 @@
 
         &--sm {
             font-size: 9px;
-            padding: .25rem .5rem;
+            padding: .15rem .5rem;
         }
 
         &--md {
